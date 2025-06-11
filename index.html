@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cartão Dia dos Namorados</title>
+  <style>
+    body {
+      background: #e0f0ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003366;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #ffffff;
+      max-width: 600px;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px 5px #3399ff80;
+      line-height: 1.6;
+      position: relative;
+      animation: brilho 3s infinite alternate;
+    }
+    @keyframes brilho {
+      from { box-shadow: 0 0 15px #66ccff; }
+      to { box-shadow: 0 0 25px #3399ff; }
+    }
+    h1 {
+      color: #0059b3;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      user-select: none;
+    }
+    .letter {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #004080;
+      cursor: default;
+    }
+    .connector {
+      width: 60px;
+      height: 8px;
+      background: #3399ff;
+      border-radius: 4px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 8px 3px #3399ff99; opacity: 1; }
+      50% { box-shadow: 0 0 20px 10px #3399ff33; opacity: 0.6; }
+    }
+    p {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+    .highlight {
+      font-weight: 700;
+      color: #004080;
+    }
+    .footer {
+      margin-top: 30px;
+      font-style: italic;
+      text-align: center;
+      color: #0066cc;
+      font-size: 1rem;
+    }
+    .data {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #007acc;
+    }
+    .secreto {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .secreto button {
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      background: transparent;
+      color: #e0f0ff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .secreto p {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #cc0033;
+    }
+    input, button {
+      font-size: 1rem;
+    }
+    #joguinho {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .coracao {
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .coracao:hover {
+      transform: scale(1.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="jogoReflexo">
+      <h2 style="text-align:center; color:#004080;">acerte o coração</h2>
+      <p style="text-align:center">amor clique no coração certo</p>
+      <div id="joguinho"></div>
+      <p id="resultadoJogo" style="text-align:center; font-weight:bold; margin-top: 10px;"></p>
+    </div>
+
+    <div id="quiz" style="display:none;">
+      <h2 style="text-align:center; color:#004080;">Pergunta pra ver se me conhece msm</h2>
+      <p><strong>1. Qual é meu jogador preferido? Dica: não e o obv</strong></p>
+      <input type="text" id="q1" placeholder="Jogador..."><br><br>
+
+      <p><strong>2. Quem foi campeão da Champions no ano que eu nasci? NAO VALE PESQUISAR</strong></p>
+      <input type="text" id="q2" placeholder="Time..."><br><br>
+
+      <div id="extraPergunta" style="display:none;">
+        <p><strong>2.1 Eu gosto desse time?</strong></p>
+        <input type="text" id="q2extra" placeholder="Sim ou não..."><br><br>
+      </div>
+
+      <p><strong>3. Qual o nome da nossa música?</strong></p>
+      <input type="text" id="q3" placeholder="Nome da música..."><br><br>
+
+      <button onclick="verificarRespostas()">Enviar</button>
+      <p id="feedbackQuiz" style="margin-top: 10px; font-weight: bold;"></p>
+    </div>
+
+    <div id="conteudoCarta" style="display: none;">
+      <h1><span class="letter">Y</span><div class="connector"></div><span class="letter">D</span></h1>
+      <p>Oi, minha princesa,</p>
+      <p>Gostaria de expressar a emoção que estou sentindo por estar, mais um ano, comemorando o Dia dos Namorados com você. Assim como em todas as cartas que escrevo, primeiramente venho te agradecer por ser minha companheira em todos os momentos.</p>
+      <p>Você não tem noção do quanto sou realizado por ter você pra chamar de minha, por fazer parte da sua vida, por poder me entregar a ti... E o mais importante: a certeza de que, muito em breve, estarei te chamando de <span class="highlight">“minha esposa”</span> e estaremos formando a nossa família.</p>
+      <p>Agora, quero te mostrar o significado de cada lembrancinha:</p>
+      <p><strong>Primeiramente, o colar e o brinco de coraçãozinho...</strong> Acho que já é meio óbvio, mas eu gosto de reforçar sempre o meu amor e a minha paixão por você. Quero que, toda vez que você usar ou ver essas lembrancinhas, lembre do nosso amor, da nossa conexão e de tudo que estamos construindo juntos.</p>
+      <p><strong>O ursinho</strong>, urso estranho da porra kkkkkkkkkkkkkk (mas é fofo a porrinha) é pra você sempre sentir a minha presença. Pra você lembrar que, independentemente do momento, eu estarei sempre com você. Sempre presente, disponível e disposto a fazer de tudo por você e por nós dois.</p>
+      <p><strong>E por fim, o último presente e pra mim o mais importante.</strong> Essa camisa tem um significado muito especial, porque nela tá representado algo que realmente importa muito pra mim (o que sustenta tudo que a gente vive, o que guia a nossa relação).</p>
+      <p>Tá escrito <span class="highlight">"Jesus, my first love"</span>, e é exatamente isso que eu quero pra nós dois, que o amor de Deus venha sempre em primeiro lugar na nossa vida, que Ele esteja no centro de tudo. Com Ele guiando a gente, tenho certeza que nosso amor vai seguir firme, crescendo cada dia mais, com mais paz e união.</p>
+      <p>Enfim, meu amor, eu poderia passar a eternidade digitando pra você, mas acredito que já deixei claros os meus sentimentos. Feliz Dia dos Namorados, minha princesa. Eu te amo de uma maneira inimaginável e peço muito a Deus para que a nossa relação seja eterna.</p>
+      <div class="footer">De Yuri pra Dudinhadia</div>
+      <div class="data">12/06/2025</div>
+      <div class="secreto">
+        <button onclick="mostrarMensagem()">não clique aqui</button>
+        <p id="resposta" style="display:none;"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function gerarCorações() {
+      const container = document.getElementById('joguinho');
+      container.innerHTML = '';
+      const total = 12;
+      const certo = Math.floor(Math.random() * total);
+
+      for (let i = 0; i < total; i++) {
+        const c = document.createElement('div');
+        c.innerHTML = '❤️';
+        c.className = 'coracao';
+        if (i === certo) {
+          c.onclick = () => {
+            document.getElementById('resultadoJogo').innerText = 'acertouu dudinha';
+            document.getElementById('jogoReflexo').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+          };
+        } else {
+          c.onclick = () => {
+            document.getElementById('resultadoJogo').innerText = 'burra tente dnv';
+          };
+        }
+        container.appendChild(c);
+      }
+    }
+    gerarCorações();
+
+    function verificarRespostas() {
+      const q1 = document.getElementById('q1').value.trim().toLowerCase();
+      const q2 = document.getElementById('q2').value.trim().toLowerCase();
+      const q3 = document.getElementById('q3').value.trim().toLowerCase();
+      const q2extraDiv = document.getElementById('extraPergunta');
+      const feedback = document.getElementById('feedbackQuiz');
+
+      if (q1 === "janderson" && q2 === "barcelona") {
+        q2extraDiv.style.display = "block";
+        const q2extra = document.getElementById('q2extra').value.trim().toLowerCase();
+
+        if (q2extra === "não" || q2extra === "nao") {
+          if (q3 === "uma dose 2") {
+            feedback.style.color = "green";
+            feedback.innerText = "Acertou tudo vc e barril minha linda";
+            document.getElementById('quiz').style.display = "none";
+            document.getElementById('conteudoCarta').style.display = "block";
+          } else {
+            feedback.style.color = "red";
+            feedback.innerText = "rapaz eu não acredito nisso";
+          }
+        } else if (q2extra !== "") {
+          feedback.style.color = "red";
+          feedback.innerText = "burra pra crl me conhece nn e";
+        } else {
+          feedback.innerText = "Responde a pergunta 2.1!";
+        }
+      } else {
+        feedback.style.color = "red";
+        feedback.innerText = "vc errou vei tente dnv ai";
+      }
+    }
+
+    let mensagens = [
+      "tem certeza?",
+      "vai se arrepender vei",
+      "deixe de maluquice mermao",
+      "não faça isso",
+      "vc vai se irritar bote fe",
+      "vc e teimosa viu velho",
+      "opai que porrinha curiosa",
+      "rpz inacreditavel",
+      "clicar de novo é burrice",
+      "blz vai ter que pagar"
+    ];
+
+    let etapa = 0;
+
+    function mostrarMensagem() {
+      const p = document.getElementById('resposta');
+      if (etapa < mensagens.length) {
+        p.innerText = mensagens[etapa];
+        p.style.display = "block";
+        etapa++;
+      } else {
+        p.innerText = "me da esse rabão de presente?";
+
+        // Criar caixinha com os botões
+        const container = document.createElement('div');
+        container.style.marginTop = "15px";
+        container.style.display = "flex";
+        container.style.justifyContent = "center";
+        container.style.gap = "20px";
+        container.id = "caixaRespostas";
+
+        const btnSim = document.createElement('button');
+        btnSim.innerText = "Sim";
+        btnSim.style.padding = "10px 20px";
+        btnSim.style.background = "#4CAF50";
+        btnSim.style.color = "white";
+        btnSim.style.border = "none";
+        btnSim.style.borderRadius = "10px";
+        btnSim.style.cursor = "pointer";
+
+        const btnNao = document.createElement('button');
+        btnNao.innerText = "Não";
+        btnNao.style.padding = "10px 20px";
+        btnNao.style.background = "#f44336";
+        btnNao.style.color = "white";
+        btnNao.style.border = "none";
+        btnNao.style.borderRadius = "10px";
+        btnNao.style.cursor = "pointer";
+        btnNao.style.position = "relative";
+
+        btnSim.onclick = () => {
+          p.innerText = "VAMOOOOOOOOOOOOOOOO";
+          document.getElementById('caixaRespostas').remove();
+        };
+
+        btnNao.onmouseover = () => {
+          const maxX = window.innerWidth - btnNao.offsetWidth - 50;
+          const maxY = window.innerHeight - btnNao.offsetHeight - 50;
+          const randX = Math.random() * maxX;
+          const randY = Math.random() * maxY;
+          btnNao.style.position = "absolute";
+          btnNao.style.left = `${randX}px`;
+          btnNao.style.top = `${randY}px`;
+        };
+
+        container.appendChild(btnSim);
+        container.appendChild(btnNao);
+        p.after(container);
+      }
+    }
+  </script>
+</body>
+</html>
